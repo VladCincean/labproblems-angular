@@ -1,9 +1,6 @@
 package ro.droptable.labproblems.web.config;
 
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Import;
+import org.springframework.context.annotation.*;
 
 import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
 import ro.droptable.labproblems.core.JPAConfig;
@@ -14,6 +11,8 @@ import ro.droptable.labproblems.core.JPAConfig;
 @Configuration
 @ComponentScan({"ro.droptable.labproblems.core"})
 @Import({JPAConfig.class})
+@PropertySources({@PropertySource(value = "classpath:local/db.properties"),
+})
 public class AppLocalConfig {
 
     /**
