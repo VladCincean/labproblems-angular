@@ -1,0 +1,4 @@
+rootProject.name = 'labproblems-angular'
+include 'labproblems-core'
+include 'labproblems-web'
+
