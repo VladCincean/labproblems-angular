@@ -31,7 +31,7 @@ import java.util.concurrent.TimeUnit;
 @EnableCaching
 public class JPAConfig {
 
-    @Value("${db.serverName")
+    @Value("${db.serverName}")
     private String serverName;
 
     @Value("${db.databaseName}")
@@ -67,7 +67,7 @@ public class JPAConfig {
 
         LocalContainerEntityManagerFactoryBean factory = new LocalContainerEntityManagerFactoryBean();
         factory.setJpaVendorAdapter(vendorAdapter);
-        factory.setPackagesToScan("ro.droptable.labproblems.core.mode");
+        factory.setPackagesToScan("ro.droptable.labproblems.core.model");
         factory.setDataSource(dataSource());
         factory.afterPropertiesSet();
         return factory.getObject();

@@ -1,12 +1,16 @@
 package ro.droptable.labproblems.core.model;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 import java.io.Serializable;
 import java.util.Objects;
 
 /**
  * Created by stefana on 4/11/2017.
  */
+@Entity
+@Table(name = "problem")
 public class Problem extends BaseEntity<Long> implements Serializable {
 
     @Column(name = "title", nullable = false)

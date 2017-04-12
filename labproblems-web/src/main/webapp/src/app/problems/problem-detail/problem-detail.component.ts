@@ -1,4 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, Input} from '@angular/core';
+import {Problem} from "../shared/problem.model";
+import {ProblemService} from "../shared/problem.service";
+import {ActivatedRoute, Params} from "@angular/router";
+import {Location} from '@angular/common';
+
+import 'rxjs/add/operator/switchMap';
 
 @Component({
   selector: 'app-problem-detail',
@@ -7,9 +13,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProblemDetailComponent implements OnInit {
 
-  constructor() { }
+  @Input()
+  problem: Problem;
 
-  ngOnInit() {
+  constructor(private problemService: ProblemService,
+              private route: ActivatedRoute,
+              private location: Location) {
+  }
+
+  ngOnInit(): void {
+    this.route.params
+      .switchMap((params: Params) => this.problemService.getProblem(+params['id']))
+      .subscribe(problem => this.problem = problem);
+  }
+
+  goBack(): void {
+    this.location.back();
   }
 
 }
