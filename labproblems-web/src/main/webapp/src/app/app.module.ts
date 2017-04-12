@@ -10,6 +10,7 @@ import { StudentDetailComponent } from './students/student-detail/student-detail
 import { StudentListComponent } from './students/student-list/student-list.component';
 import { ProblemDetailComponent } from './problems/problem-detail/problem-detail.component';
 import { ProblemListComponent } from './problems/problem-list/problem-list.component';
+import {AppRoutingModule} from "./app-routing.module";
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { ProblemListComponent } from './problems/problem-list/problem-list.compo
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    AppRoutingModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

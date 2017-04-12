@@ -1,10 +1,10 @@
-import { WebappPage } from './app.po';
+import { CatalogNgPage } from './app.po';
 
-describe('webapp App', () => {
-  let page: WebappPage;
+describe('catalog-ng App', function() {
+  let page: CatalogNgPage;
 
   beforeEach(() => {
-    page = new WebappPage();
+    page = new CatalogNgPage();
   });
 
   it('should display message saying app works', () => {

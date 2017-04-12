@@ -1,6 +1,6 @@
 import { browser, element, by } from 'protractor';
 
-export class WebappPage {
+export class CatalogNgPage {
   navigateTo() {
     return browser.get('/');
   }
