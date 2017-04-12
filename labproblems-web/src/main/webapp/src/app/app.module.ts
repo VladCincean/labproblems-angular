@@ -6,12 +6,20 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { StudentsComponent } from './students/students.component';
 import { ProblemsComponent } from './problems/problems.component';
+import { StudentDetailComponent } from './students/student-detail/student-detail.component';
+import { StudentListComponent } from './students/student-list/student-list.component';
+import { ProblemDetailComponent } from './problems/problem-detail/problem-detail.component';
+import { ProblemListComponent } from './problems/problem-list/problem-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     StudentsComponent,
-    ProblemsComponent
+    ProblemsComponent,
+    StudentDetailComponent,
+    StudentListComponent,
+    ProblemDetailComponent,
+    ProblemListComponent
   ],
   imports: [
     BrowserModule,
