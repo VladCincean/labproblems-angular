@@ -54,7 +54,6 @@ public class JPAConfig {
         dataSource.setUser(user);
         dataSource.setPassword(password);
         dataSource.setMaxConnections(4);
-
         return dataSource;
     }
 
