@@ -7,15 +7,15 @@ import {ProblemDetailComponent} from "./problems/problem-detail/problem-detail.c
 
 
 const routes: Routes = [
-  // { path: '', redirectTo: '/home', pathMatch: 'full' },
-  { path: 'students',     component: StudentsComponent },
-  { path: 'student/detail/:id', component: StudentDetailComponent},
+    // { path: '', redirectTo: '/home', pathMatch: 'full' },
+    { path: 'students',     component: StudentsComponent },
+    { path: 'student/detail/:id', component: StudentDetailComponent},
 
-  { path: 'problems',     component: ProblemsComponent },
-  { path: 'problem/detail/:id', component: ProblemDetailComponent},
+    { path: 'problems',     component: ProblemsComponent },
+    { path: 'problem/detail/:id', component: ProblemDetailComponent},
 ];
 @NgModule({
-  imports: [ RouterModule.forRoot(routes) ],
-  exports: [ RouterModule ]
+    imports: [ RouterModule.forRoot(routes) ],
+    exports: [ RouterModule ]
 })
 export class AppRoutingModule {}

@@ -7,7 +7,7 @@ import {Location} from '@angular/common';
 import 'rxjs/add/operator/switchMap';
 
 @Component({
-  selector: 'app-problem-detail',
+  selector: 'ubb-problem-detail',
   templateUrl: './problem-detail.component.html',
   styleUrls: ['./problem-detail.component.css']
 })

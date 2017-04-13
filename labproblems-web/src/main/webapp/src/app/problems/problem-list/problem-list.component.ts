@@ -5,7 +5,7 @@ import {Router} from "@angular/router";
 
 @Component({
   moduleId: module.id,
-  selector: 'app-problem-list',
+  selector: 'ubb-problem-list',
   templateUrl: './problem-list.component.html',
   styleUrls: ['./problem-list.component.css']
 })

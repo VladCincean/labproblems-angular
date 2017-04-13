@@ -6,17 +6,25 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 var core_1 = require('@angular/core');
-var AppComponent = (function () {
-    function AppComponent() {
-        this.title = 'Catalog';
+var StudentsComponent = (function () {
+    function StudentsComponent() {
     }
-    AppComponent = __decorate([
+    StudentsComponent = __decorate([
         core_1.Component({
-            selector: 'my-root',
-            template: "\n    <h1>{{title}}</h1>\n    <my-students></my-students>\n  ",
-            styleUrls: ['./app.component.css'],
+            moduleId: module.id,
+            selector: 'app-students',
+            templateUrl: './students.component.html',
+            styleUrls: ['./students.component.css']
         })
-    ], AppComponent);
-    return AppComponent;
+    ], StudentsComponent);
+    return StudentsComponent;
 }());
-exports.AppComponent = AppComponent;
+exports.StudentsComponent = StudentsComponent;
+// export class StudentsComponent implements OnInit {
+//
+//   constructor() { }
+//
+//   ngOnInit() {
+//   }
+//
+// }

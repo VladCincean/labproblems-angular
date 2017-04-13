@@ -1,6 +1,6 @@
 export class Student {
-  id: number;
-  serialNumber: string;
-  name: string;
-  studentGroup: number;
+    id: number;
+    serialNumber: string;
+    name: string;
+    studentGroup: number;
 }

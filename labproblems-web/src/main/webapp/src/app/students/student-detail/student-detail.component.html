@@ -1,16 +1,16 @@
 <div *ngIf="student">
-  <h2>Student {{student.name}} details</h2>
-  <div>
-    <label>Serial number: </label> {{student.serialNumber}}
-    <input [(ngModel)]="student.serialNumber" placeholder="serialNumber">
-  </div>
-  <div>
-    <label>Name: </label> {{student.name}}
-    <input [(ngModel)]="student.name" placeholder="name">
-  </div>
-  <div>
-    <label>Student group: </label> {{student.studentGroup}}
-    <input [(ngModel)]="student.studentGroup" placeholder="studentGroup">
-  </div>
-  <button (click)="goBack()">Back</button>
+    <h2>Student {{student.name}} details</h2>
+    <div>
+        <label>Serial number: </label> {{student.serialNumber}}
+        <input [(ngModel)]="student.serialNumber" placeholder="serialNumber">
+    </div>
+    <div>
+        <label>Name: </label> {{student.name}}
+        <input [(ngModel)]="student.name" placeholder="name">
+    </div>
+    <div>
+        <label>Student group: </label> {{student.studentGroup}}
+        <input [(ngModel)]="student.studentGroup" placeholder="studentGroup">
+    </div>
+    <button (click)="goBack()">Back</button>
 </div>
