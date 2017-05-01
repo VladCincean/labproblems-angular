@@ -20,6 +20,7 @@ allprojects {
         javaxServeletApiVersion = '3.1.0'
         slf4jVersion = '1.7.21'
         log4jVersion = '2.5'
+        lombokVersion = '1.16.12'
     }
 
     dependencies {
@@ -32,5 +33,6 @@ allprojects {
         compile group: 'org.apache.logging.log4j', name: 'log4j-slf4j-impl', version: "$log4jVersion"
         compile group: 'org.apache.logging.log4j', name: 'log4j-core', version: "$log4jVersion"
         compile group: 'org.apache.logging.log4j', name: 'log4j-1.2-api', version: "$log4jVersion"
+        compile group: 'org.projectlombok', name: 'lombok', version: "$lombokVersion"
     }
 }
