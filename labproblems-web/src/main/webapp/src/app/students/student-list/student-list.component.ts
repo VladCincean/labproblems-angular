@@ -39,4 +39,13 @@ export class StudentListComponent implements OnInit {
         this.router.navigate(['/student/detail', this.selectedStudent.id]);
     }
 
+    delete(student: Student): void {
+        this.studentService.delete(student.id)
+            .subscribe(() => {
+                this.students = this.students.filter(s => s !== student);
+                if (this.selectedStudent === student) {
+                    this.selectedStudent = null;
+                }
+            });
+    }
 }

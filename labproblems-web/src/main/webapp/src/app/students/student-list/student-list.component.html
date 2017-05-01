@@ -11,5 +11,7 @@
         [class.selected]="student === selectedStudent"
         (click)="onSelect(student)">
         {{student.name}}
+        <button class="delete"
+                (click)="delete(student); $event.stopPropagation()">x</button>
     </li>
 </ol>
