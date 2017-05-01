@@ -31,4 +31,44 @@ public class StudentServiceImpl implements StudentService {
 
         return students;
     }
+
+    @Override
+    @Transactional
+    public Student createStudent(String serialNumber, String name, Integer studentGroup) {
+        log.trace("createStudent: serialNumber={}, name={}, studentGroup={}",
+                serialNumber, name, studentGroup);
+
+        Student student = new Student(serialNumber, name, studentGroup);
+        student = studentRepository.save(student);
+
+        log.trace("createStudent: student={}", student);
+
+        return student;
+    }
+
+    @Override
+    @Transactional
+    public Student updateStudent(Long studentId, String serialNumber, String name, Integer studentGroup) {
+        log.trace("updateStudent: studentId={}, serialNumber={}, name={}, studentGroup={}",
+                studentId, serialNumber, name, studentGroup);
+
+        Student student = studentRepository.findOne(studentId);
+        student.setSerialNumber(serialNumber);
+        student.setName(name);
+        student.setStudentGroup(studentGroup);
+
+        log.trace("updateStudent: student={}", student);
+
+        return student;
+    }
+
+    @Override
+    @Transactional
+    public void deleteStudent(Long studentId) {
+        log.trace("deleteStudent: studentId={}", studentId);
+
+        studentRepository.delete(studentId);
+
+        log.trace("deleteStudent - method end");
+    }
 }

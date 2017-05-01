@@ -9,4 +9,10 @@ import java.util.List;
  */
 public interface StudentService {
     List<Student> findAll();
+
+    Student createStudent(String serialNumber, String name, Integer studentGroup);
+
+    Student updateStudent(Long studentId, String serialNumber, String name, Integer studentGroup);
+
+    void deleteStudent(Long studentId);
 }
