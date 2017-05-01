@@ -1,27 +1,25 @@
 package ro.droptable.labproblems.web.dto;
 
-import ro.droptable.labproblems.core.model.Student;
-
-import java.util.List;
+import lombok.*;
 
 /**
  * Created by stefana on 4/11/2017.
  */
-public class StudentDto {
-    private List<Student> students;
+@NoArgsConstructor
+@AllArgsConstructor
+@Getter
+@Setter
+public class StudentDto extends BaseDto {
+    private String serialNumber;
+    private String name;
+    private Integer studentGroup;
 
-    public StudentDto() {
-    }
-
-    public StudentDto(List<Student> students) {
-        this.students = students;
-    }
-
-    public List<Student> getStudents() {
-        return students;
-    }
-
-    public void setStudents(List<Student> students) {
-        this.students = students;
+    @Override
+    public String toString() {
+        return "StudentDto{" +
+                "serialNumber='" + serialNumber + '\'' +
+                ", name='" + name + '\'' +
+                ", studentGroup=" + studentGroup +
+                '}' + super.toString();
     }
 }
