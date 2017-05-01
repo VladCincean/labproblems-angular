@@ -13,6 +13,7 @@ import {ProblemsComponent} from "./problems/problems.component";
 import {ProblemListComponent} from "./problems/problem-list/problem-list.component";
 import {ProblemService} from "./problems/shared/problem.service";
 import {ProblemDetailComponent} from "./problems/problem-detail/problem-detail.component";
+import { StudentNewComponent } from './students/student-new/student-new.component';
 
 @NgModule({
     declarations: [
@@ -23,7 +24,8 @@ import {ProblemDetailComponent} from "./problems/problem-detail/problem-detail.c
 
         ProblemsComponent,
         ProblemListComponent,
-        ProblemDetailComponent
+        ProblemDetailComponent,
+        StudentNewComponent
     ],
     imports: [
         BrowserModule,
