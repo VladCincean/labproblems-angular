@@ -13,14 +13,16 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
  */
 @Configuration
 @EnableWebMvc
-@ComponentScan({"ro.droptable.labproblems.web.controller"})
+@ComponentScan({"ro.droptable.labproblems.web.controller", "ro.droptable.labproblems.web.converter"})
 public class WebConfig {
     @Bean
     public WebMvcConfigurer corsConfigurer() {
         return new WebMvcConfigurerAdapter() {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
-                registry.addMapping("/*").allowedOrigins("http://localhost:4200");
+                registry.addMapping("/**")
+                        .allowedOrigins("http://localhost:4200", "http://localhost:8080")
+                        .allowedMethods("GET", "PUT", "POST", "DELETE");
             }
         };
     }
