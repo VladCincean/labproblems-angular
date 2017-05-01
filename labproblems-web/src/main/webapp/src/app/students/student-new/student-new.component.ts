@@ -22,7 +22,7 @@ export class StudentNewComponent {
     }
 
     save(serialNumber, name, studentGroup): void {
-        console.log("student-new.component.ts::save(serialNumber={}, name={}, studentGroup={}", serialNumber, name, studentGroup);
+        console.log("student-new.component.ts::save(serialNumber=", serialNumber, "name=", name, "studentGroup=", studentGroup, ")");
         if (!this.isValid(serialNumber, name, studentGroup)) {
             console.log("all fields are required ");
             alert("all fields are required; studentGroup has to be an int");

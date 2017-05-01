@@ -6,7 +6,6 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 import java.io.Serializable;
-import java.util.Objects;
 
 /**
  * Created by vlad on 11.04.2017.
@@ -19,7 +18,7 @@ import java.util.Objects;
 @AllArgsConstructor
 @Getter
 @Setter
-@EqualsAndHashCode(callSuper=false)
+@EqualsAndHashCode(callSuper = false)
 public class Student extends BaseEntity<Long> implements Serializable {
 
     private static final int SERIAL_NUMBER_LENGTH = 16;
