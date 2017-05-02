@@ -14,6 +14,7 @@ import {ProblemListComponent} from "./problems/problem-list/problem-list.compone
 import {ProblemService} from "./problems/shared/problem.service";
 import {ProblemDetailComponent} from "./problems/problem-detail/problem-detail.component";
 import { StudentNewComponent } from './students/student-new/student-new.component';
+import { ProblemNewComponent } from './problems/problem-new/problem-new.component';
 
 @NgModule({
     declarations: [
@@ -25,7 +26,8 @@ import { StudentNewComponent } from './students/student-new/student-new.componen
         ProblemsComponent,
         ProblemListComponent,
         ProblemDetailComponent,
-        StudentNewComponent
+        StudentNewComponent,
+        ProblemNewComponent
     ],
     imports: [
         BrowserModule,

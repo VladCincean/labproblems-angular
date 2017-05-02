@@ -1,5 +1,9 @@
 package ro.droptable.labproblems.web.dto;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 import ro.droptable.labproblems.core.model.Problem;
 
 import java.util.List;
@@ -7,22 +11,20 @@ import java.util.List;
 /**
  * Created by stefana on 4/11/2017.
  */
-public class ProblemDto {
-    private List<Problem> problems;
+@NoArgsConstructor
+@AllArgsConstructor
+@Getter
+@Setter
+public class ProblemDto extends BaseDto {
+    private String title;
+    private String description;
 
-    public ProblemDto() {
-    }
-
-    public ProblemDto(List<Problem> problems) {
-        this.problems = problems;
-    }
-
-    public List<Problem> getProblems() {
-        return problems;
-    }
-
-    public void setProblems(List<Problem> problems) {
-        this.problems = problems;
+    @Override
+    public String toString() {
+        return "ProblemDto{" +
+                "title='" + title + '\'' +
+                ", description='" + description + '\'' +
+                '}' + super.toString();
     }
 }
 

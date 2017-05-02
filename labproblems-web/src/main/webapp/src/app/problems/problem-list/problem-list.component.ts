@@ -37,4 +37,13 @@ export class ProblemListComponent implements OnInit {
   gotoDetail(): void {
     this.router.navigate(['/problem/detail', this.selectedProblem.id]);
   }
+  delete(problem: Problem): void {
+    this.problemService.delete(problem.id)
+      .subscribe(() => {
+        this.problems = this.problems.filter(p => p !== problem);
+        if (this.selectedProblem === problem) {
+          this.selectedProblem = null;
+        }
+      });
+  }
 }

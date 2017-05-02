@@ -9,4 +9,9 @@ import java.util.List;
  */
 public interface ProblemService {
     List<Problem> findAll();
+    Problem createProblem(String title, String description);
+
+    Problem updateProblem(Long problemId, String title, String description);
+
+    void deleteProblem(Long problemId);
 }

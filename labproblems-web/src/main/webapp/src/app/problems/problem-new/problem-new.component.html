@@ -1,0 +1,15 @@
+<h3>Add Problem</h3>
+
+<div>
+  <label>Title: </label>
+  <input #problemTitle/>
+</div>
+<div>
+  <label>Description: </label>
+  <input #problemDescription>
+</div>
+<div>
+  <button (click)="goBack()">Back</button>
+  <button (click)="save(problemTitle.value, problemDescription.value)">Save</button>
+</div>
+

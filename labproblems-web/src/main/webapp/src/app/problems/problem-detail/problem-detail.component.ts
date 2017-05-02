@@ -31,4 +31,9 @@ export class ProblemDetailComponent implements OnInit {
     this.location.back();
   }
 
+  save(): void {
+    this.problemService.update(this.problem)
+      .subscribe(_ => this.goBack());
+  }
+
 }

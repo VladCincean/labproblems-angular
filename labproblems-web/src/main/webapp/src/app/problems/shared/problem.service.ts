@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {Http, Response} from "@angular/http";
+import {Http, Response, Headers} from "@angular/http";
 
 import {Problem} from "./problem.model";
 
@@ -11,6 +11,7 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class ProblemService {
   private problemsUrl = 'http://localhost:8080/api/problems';
+  private headers = new Headers({'Content-Type': 'application/json'});
 
   constructor(private http: Http) {
   }
@@ -44,4 +45,40 @@ export class ProblemService {
       .map(problems => problems.find(problem => problem.id === id));
   }
 
+  private extractProblemData(res: Response) {
+    let body = res.json();
+    return body.problem || {};
+  }
+
+  create(title: string, description:string): Observable<Problem> {
+    let problem = {title, description};
+    return this.http
+      .post(
+        this.problemsUrl,
+        JSON.stringify({"problem": problem}),
+        {headers: this.headers}
+      ).map(this.extractProblemData)
+      .catch(this.handleError);
+  }
+
+  update(problem): Observable<Problem> {
+    const url = `${this.problemsUrl}/${problem.id}`;
+    return this.http
+      .put(
+        url,
+        JSON.stringify({"problem": problem}),
+        {headers: this.headers}
+      ).map(this.extractProblemData)
+      .catch(this.handleError);
+  }
+
+  delete(id: number): Observable<void> {
+    const url = `${this.problemsUrl}/${id}`;
+    return this.http
+      .delete(
+        url,
+        {headers: this.headers}
+      ).map(() => null)
+      .catch(this.handleError);
+  }
 }
