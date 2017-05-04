@@ -26,9 +26,10 @@ export class StudentNewComponent {
         if (!this.isValid(serialNumber, name, studentGroup)) {
             console.log("all fields are required ");
             alert("all fields are required; studentGroup has to be an int");
-        }
-        this.studentService.create(serialNumber, name, studentGroup)
+        } else {
+          this.studentService.create(serialNumber, name, studentGroup)
             .subscribe(_ => this.goBack());
+        }
     }
 
     private isValid(serialNumber, name, studentGroup) {
