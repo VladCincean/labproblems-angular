@@ -26,9 +26,10 @@ export class ProblemNewComponent {
     if (!this.isValid(title,description)) {
       console.log("all fields are required ");
       alert("all fields are required");
+    } else {
+      this.problemService.create(title, description)
+        .subscribe(_ => this.goBack());
     }
-    this.problemService.create(title, description)
-      .subscribe(_ => this.goBack());
   }
 
   private isValid(title, description) {
