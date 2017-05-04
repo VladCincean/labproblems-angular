@@ -7,7 +7,7 @@ import {ProblemService} from "../shared/problem.service";
   moduleId: module.id,
   selector: 'ubb-problem-new',
   templateUrl: './problem-new.component.html',
-  styleUrls: ['./problem-new.component.css']
+  styleUrls: ['./problem-new.component.css'],
 })
 export class ProblemNewComponent {
   @Input() problem: Problem;
