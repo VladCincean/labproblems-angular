@@ -6,6 +6,7 @@ import java.util.List;
 /**
  * Created by stefana on 4/11/2017.
  */
+@Deprecated
 public class AssignmentDto {
     /*
     private List<Assignment> assignments;
