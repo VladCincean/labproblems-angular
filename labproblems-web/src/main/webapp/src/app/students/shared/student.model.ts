@@ -3,4 +3,5 @@ export class Student {
     serialNumber: string;
     name: string;
     studentGroup: number;
+    problems: number[];
 }

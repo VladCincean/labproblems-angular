@@ -11,6 +11,7 @@ import {GradesComponent} from "./grades/grades.component";
 
 const routes: Routes = [
     // { path: '', redirectTo: '/home', pathMatch: 'full' },
+    { path: 'grades',     component: GradesComponent },
     { path: 'students',     component: StudentsComponent },
     { path: 'student/detail/:id', component: StudentDetailComponent},
     { path: 'student/new', component: StudentNewComponent},
@@ -19,7 +20,7 @@ const routes: Routes = [
     { path: 'problem/new', component: ProblemNewComponent},
     { path: 'problems',     component: ProblemsComponent },
 
-    { path: 'grades',     component: GradesComponent },
+
 ];
 @NgModule({
     imports: [ RouterModule.forRoot(routes) ],

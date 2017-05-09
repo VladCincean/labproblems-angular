@@ -16,6 +16,8 @@ import {ProblemDetailComponent} from "./problems/problem-detail/problem-detail.c
 import { StudentNewComponent } from './students/student-new/student-new.component';
 import { ProblemNewComponent } from './problems/problem-new/problem-new.component';
 import { GradesComponent } from './grades/grades.component';
+import {StudentProblemService} from "./grades/shared/student-problem.service";
+import { ProblemAssignComponent } from './problem-assign/problem-assign.component';
 
 @NgModule({
     declarations: [
@@ -29,7 +31,8 @@ import { GradesComponent } from './grades/grades.component';
         ProblemDetailComponent,
         StudentNewComponent,
         ProblemNewComponent,
-        GradesComponent
+        GradesComponent,
+        ProblemAssignComponent,
     ],
     imports: [
         BrowserModule,
@@ -37,7 +40,7 @@ import { GradesComponent } from './grades/grades.component';
         HttpModule,
         AppRoutingModule,
     ],
-    providers: [StudentService,ProblemService],
+    providers: [StudentService,ProblemService, StudentProblemService],
     bootstrap: [AppComponent]
 })
 export class AppModule {

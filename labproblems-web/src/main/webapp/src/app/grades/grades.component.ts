@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {Student} from "../students/shared/student.model";
 import {StudentService} from "../students/shared/student.service";
 import {StudentProblem} from "./shared/student-problem.model";
+import {Location} from "@angular/common";
 import {StudentProblemService} from "./shared/student-problem.service";
 
 
@@ -63,7 +64,7 @@ export class GradesComponent {
   }
 
   private goBack(): void {
-   // #TODO solve error : this.location.back();
+   this.location.back();
   }
 
 }
