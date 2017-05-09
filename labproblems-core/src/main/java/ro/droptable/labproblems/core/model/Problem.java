@@ -1,16 +1,25 @@
 package ro.droptable.labproblems.core.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import lombok.*;
+
+import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Collections;
+import java.util.HashSet;
 import java.util.Objects;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 /**
  * Created by stefana on 4/11/2017.
  */
 @Entity
 @Table(name = "problem")
+@NoArgsConstructor
+@AllArgsConstructor
+@Getter
+@Setter
+@Builder
 public class Problem extends BaseEntity<Long> implements Serializable {
 
     @Column(name = "title", nullable = false)
@@ -19,8 +28,8 @@ public class Problem extends BaseEntity<Long> implements Serializable {
     @Column(name = "description", nullable = false)
     private String description;
 
-    public Problem() {
-    }
+    @OneToMany(mappedBy = "problem", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    private Set<StudentProblem> studentProblems = new HashSet<>();
 
     public Problem(String title, String description) {
         this.title = title;
@@ -70,5 +79,28 @@ public class Problem extends BaseEntity<Long> implements Serializable {
                 "title='" + title + '\'' +
                 ", description='" + description + '\'' +
                 "} " + super.toString();
+    }
+
+    public Set<Student> getStudents() {
+        return Collections.unmodifiableSet(
+                studentProblems.stream()
+                        .map(sd -> sd.getStudent())
+                        .collect(Collectors.toSet())
+        );
+    }
+
+    public void addStudent(Student student) {
+        StudentProblem studentProblem = new StudentProblem();
+        studentProblem.setStudent(student);
+        studentProblem.setProblem(this);
+        studentProblems.add(studentProblem);
+    }
+
+    public void addGrade(Student student, Integer grade) {
+        StudentProblem studentProblem = new StudentProblem();
+        studentProblem.setStudent(student);
+        studentProblem.setGrade(grade);
+        studentProblem.setProblem(this);
+        studentProblems.add(studentProblem);
     }
 }

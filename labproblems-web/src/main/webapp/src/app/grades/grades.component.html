@@ -1,0 +1,22 @@
+<h2>Grades</h2>
+<div>
+  <label>Serial number:</label>
+  <input #serialNumber>
+</div>
+<div>
+  <button (click)="goBack()">Back</button>
+  <button (click)="loadProblemsAndGrades(serialNumber.value)">Next</button>
+</div>
+
+<form *ngIf="showProblemsAndGrades" #studentProblemForm="ngForm">
+  <h3>Problems and grades:</h3>
+  <div *ngFor="let studentProblem of studentProblems ">
+    <label>{{studentProblem.ProblemTitle}}</label>
+    <input
+      [name]="studentProblem.ProblemId"
+      [ngModel]="studentProblem.grade"
+      [placeholder]="0">
+  </div>
+  <button (click)="save(studentProblemForm)">Save</button>
+</form>
+

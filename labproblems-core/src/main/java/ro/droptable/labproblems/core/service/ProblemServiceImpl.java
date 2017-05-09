@@ -38,7 +38,7 @@ public class ProblemServiceImpl implements ProblemService{
         log.trace("createProblem: title={}, description={}",
                 title, description);
 
-        Problem problem = new Problem(title, description);
+        Problem problem = Problem.builder().title(title).description(description).build();
         problem = problemRepository.save(problem);
 
         log.trace("createProblem: problem={}", problem);

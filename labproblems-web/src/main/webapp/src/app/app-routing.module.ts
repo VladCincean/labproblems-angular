@@ -6,6 +6,7 @@ import {ProblemsComponent} from "./problems/problems.component";
 import {ProblemDetailComponent} from "./problems/problem-detail/problem-detail.component";
 import {StudentNewComponent} from "./students/student-new/student-new.component";
 import {ProblemNewComponent} from "./problems/problem-new/problem-new.component";
+import {GradesComponent} from "./grades/grades.component";
 
 
 const routes: Routes = [
@@ -17,6 +18,8 @@ const routes: Routes = [
     { path: 'problem/detail/:id', component: ProblemDetailComponent},
     { path: 'problem/new', component: ProblemNewComponent},
     { path: 'problems',     component: ProblemsComponent },
+
+    { path: 'grades',     component: GradesComponent },
 ];
 @NgModule({
     imports: [ RouterModule.forRoot(routes) ],
