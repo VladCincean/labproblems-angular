@@ -5,12 +5,15 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import ro.droptable.labproblems.core.model.Problem;
 import ro.droptable.labproblems.core.model.Student;
+import ro.droptable.labproblems.core.repository.ProblemRepository;
 import ro.droptable.labproblems.core.repository.StudentRepository;
 
 
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 /**
  * Created by vlad on 11.04.2017.
@@ -21,6 +24,9 @@ public class StudentServiceImpl implements StudentService {
 
     @Autowired
     private StudentRepository studentRepository;
+
+    @Autowired
+    private ProblemRepository problemRepository;
 
     @Override
     @Transactional
@@ -54,7 +60,7 @@ public class StudentServiceImpl implements StudentService {
 
     @Override
     @Transactional
-    public Student updateStudent(Long studentId, String serialNumber, String name, Integer studentGroup) {
+    public Student updateStudent(Long studentId, String serialNumber, String name, Integer studentGroup, Set<Long> problems) {
         log.trace("updateStudent: studentId={}, serialNumber={}, name={}, studentGroup={}",
                 studentId, serialNumber, name, studentGroup);
 
@@ -63,6 +69,15 @@ public class StudentServiceImpl implements StudentService {
         student.setName(name);
         student.setStudentGroup(studentGroup);
 
+        student.getProblems().stream()
+                .map(d -> d.getId())
+                .forEach(id -> {
+                    if (problems.contains(id)) {
+                        problems.remove(id);
+                    }
+                });
+        List<Problem> problemList = problemRepository.findAll(problems);
+        problemList.stream().forEach(d -> student.addProblem(d));
         log.trace("updateStudent: student={}", student);
 
         return student;

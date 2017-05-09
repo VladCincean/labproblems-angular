@@ -10,7 +10,7 @@ import java.io.Serializable;
  */
 
 @Entity
-@Table(name = "student_discipline")
+@Table(name = "student_problem")
 @IdClass(StudentProblemPK.class)
 @NoArgsConstructor
 @AllArgsConstructor

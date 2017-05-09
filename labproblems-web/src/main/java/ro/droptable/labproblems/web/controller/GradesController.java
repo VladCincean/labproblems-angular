@@ -35,6 +35,7 @@ public class GradesController {
         Student student = studentService.findStudent(studentId);
 
         Set<StudentProblem> studentProblems = student.getStudentProblems();
+        log.trace("getStudentProblems: problems={}", studentProblems);
         Set<StudentProblemDto> studentProblemDtos = studentProblemConverter
                 .convertModelsToDtos(studentProblems);
 

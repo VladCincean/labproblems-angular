@@ -77,7 +77,8 @@ public class StudentController {
                 studentId,
                 studentDto.getSerialNumber(),
                 studentDto.getName(),
-                studentDto.getStudentGroup()
+                studentDto.getStudentGroup(),
+                studentDto.getProblems()
         );
 
         Map<String, StudentDto> result = new HashMap<>();
