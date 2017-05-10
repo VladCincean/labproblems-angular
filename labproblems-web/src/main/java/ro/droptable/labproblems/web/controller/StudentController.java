@@ -101,4 +101,17 @@ public class StudentController {
 
         return new ResponseEntity(new EmptyJsonResponse(), HttpStatus.OK);
     }
+
+    @RequestMapping(value = "students/filter/{searchKey}", method = RequestMethod.GET)
+    public StudentsDto filterStudents(
+            @PathVariable final String searchKey
+    ) {
+        log.trace("filterStudents: searchKey={}", searchKey);
+
+        List<Student> students = studentService.filterStudents(searchKey);
+
+        log.trace("filterStudents: students={}", students);
+
+        return new StudentsDto(studentConverter.convertModelsToDtos(students));
+    }
 }

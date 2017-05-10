@@ -116,4 +116,17 @@ public class StudentServiceImpl implements StudentService {
         log.trace("updateStudentGrades: student={}", student);
         return student;
     }
+
+    @Override
+    @Transactional
+    public List<Student> filterStudents(String name) {
+        log.trace("filterStudents: name={}", name);
+
+        List<Student> students = studentRepository.findAll();
+        students.removeIf(student -> !student.getName().contains(name));
+
+        log.trace("filterStudents: students={}", students);
+
+        return students;
+    }
 }

@@ -81,4 +81,10 @@ export class ProblemService {
       ).map(() => null)
       .catch(this.handleError);
   }
+
+  filter(title: String): Observable<Problem[]> {
+    return this.http.get(`${this.problemsUrl}/filter/${title}`)
+      .map(this.extractData)
+      .catch(this.handleError);
+  }
 }

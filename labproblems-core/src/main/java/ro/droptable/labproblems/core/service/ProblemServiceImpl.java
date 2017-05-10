@@ -69,4 +69,17 @@ public class ProblemServiceImpl implements ProblemService{
 
         log.trace("deleteProblem - method end");
     }
+
+    @Override
+    @Transactional
+    public List<Problem> filterProblems(String title) {
+        log.trace("filterProblems: title={}", title);
+
+        List<Problem> problems = problemRepository.findAll();
+        problems.removeIf(problem -> !problem.getTitle().contains(title));
+
+        log.trace("filterStudents: problems={}", problems);
+
+        return problems;
+    }
 }

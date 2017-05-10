@@ -14,4 +14,6 @@ public interface ProblemService {
     Problem updateProblem(Long problemId, String title, String description);
 
     void deleteProblem(Long problemId);
+
+    List<Problem> filterProblems(String title);
 }

@@ -96,4 +96,17 @@ public class ProblemController {
 
         return new ResponseEntity(new EmptyJsonResponse(), HttpStatus.OK);
     }
+
+    @RequestMapping(value = "problems/filter/{searchKey}", method = RequestMethod.GET)
+    public ProblemsDto filterProblems(
+            @PathVariable final String searchKey
+    ) {
+        log.trace("filterProblems: searchKey={}", searchKey);
+
+        List<Problem> problems = problemService.filterProblems(searchKey);
+
+        log.trace("filterProblems: problems={}", problems);
+
+        return new ProblemsDto(problemConverter.convertModelsToDtos(problems));
+    }
 }

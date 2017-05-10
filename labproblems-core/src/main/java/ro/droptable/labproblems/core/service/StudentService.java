@@ -21,4 +21,6 @@ public interface StudentService {
     Student findStudent(Long studentId);
 
     Student updateStudentGrades(Long studentId, Map<Long, Integer> grades);
+
+    List<Student> filterStudents(String name);
 }

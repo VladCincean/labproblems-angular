@@ -82,4 +82,10 @@ export class StudentService {
           ).map(() => null)
           .catch(this.handleError);
     }
+
+    filter(name: String): Observable<Student[]> {
+      return this.http.get(`${this.studentsUrl}/filter/${name}`)
+        .map(this.extractData)
+        .catch(this.handleError);
+    }
 }

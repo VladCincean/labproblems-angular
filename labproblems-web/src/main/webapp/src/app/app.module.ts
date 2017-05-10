@@ -18,21 +18,28 @@ import { ProblemNewComponent } from './problems/problem-new/problem-new.componen
 import { GradesComponent } from './grades/grades.component';
 import {StudentProblemService} from "./grades/shared/student-problem.service";
 import { ProblemAssignComponent } from './problem-assign/problem-assign.component';
+import { StudentFilterComponent } from './students/student-filter/student-filter.component';
+import { ProblemFilterComponent } from './problems/problem-filter/problem-filter.component';
 
 @NgModule({
     declarations: [
         AppComponent,
-        StudentDetailComponent,
+
         StudentsComponent,
+        StudentDetailComponent,
         StudentListComponent,
+        StudentNewComponent,
+        StudentFilterComponent,
 
         ProblemsComponent,
-        ProblemListComponent,
         ProblemDetailComponent,
-        StudentNewComponent,
+        ProblemListComponent,
         ProblemNewComponent,
+
         GradesComponent,
         ProblemAssignComponent,
+        ProblemFilterComponent,
+
     ],
     imports: [
         BrowserModule,
