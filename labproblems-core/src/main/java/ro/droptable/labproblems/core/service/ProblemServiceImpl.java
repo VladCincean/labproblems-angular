@@ -78,7 +78,7 @@ public class ProblemServiceImpl implements ProblemService{
         List<Problem> problems = problemRepository.findAll();
         problems.removeIf(problem -> !problem.getTitle().contains(title));
 
-        log.trace("filterStudents: problems={}", problems);
+        log.trace("filterProblems: problems={}", problems);
 
         return problems;
     }

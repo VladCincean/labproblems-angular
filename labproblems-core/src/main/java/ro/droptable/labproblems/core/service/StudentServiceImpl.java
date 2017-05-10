@@ -11,6 +11,7 @@ import ro.droptable.labproblems.core.repository.ProblemRepository;
 import ro.droptable.labproblems.core.repository.StudentRepository;
 
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -69,15 +70,23 @@ public class StudentServiceImpl implements StudentService {
         student.setName(name);
         student.setStudentGroup(studentGroup);
 
+        List<Long> toRemove = new ArrayList<>();
+
         student.getProblems().stream()
                 .map(d -> d.getId())
                 .forEach(id -> {
                     if (problems.contains(id)) {
                         problems.remove(id);
+                    } else {
+                        toRemove.add(id);
                     }
                 });
+
+        problemRepository.findAll(toRemove)
+                .forEach(p -> p.getStudentProblems().removeIf(sp -> sp.getProblem().getId().equals(p.getId())));
+
         List<Problem> problemList = problemRepository.findAll(problems);
-        problemList.stream().forEach(d -> student.addProblem(d));
+        problemList.forEach(student::addProblem);
         log.trace("updateStudent: student={}", student);
 
         return student;
@@ -110,8 +119,8 @@ public class StudentServiceImpl implements StudentService {
         log.trace("updateStudentGrades: studentId={}, grades={}", studentId, grades);
 
         Student student = studentRepository.findOne(studentId);
-        student.getStudentProblems().stream()
-                .forEach(sd -> sd.setGrade(grades.get(sd.getProblem().getId())));
+        student.getStudentProblems()
+                .forEach(sp -> sp.setGrade(grades.get(sp.getProblem().getId())));
 
         log.trace("updateStudentGrades: student={}", student);
         return student;

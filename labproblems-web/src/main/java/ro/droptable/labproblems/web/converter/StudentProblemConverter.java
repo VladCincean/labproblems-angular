@@ -31,8 +31,8 @@ public class StudentProblemConverter extends BaseConverterGeneric<StudentProblem
 
     public Map<Long, Integer> convertDtoToMap(StudentProblemsDto studentProblemsDto) {
         Map<Long, Integer> grades = new HashMap<>();
-        studentProblemsDto.getStudentProblems().stream()
-                .forEach(sd -> grades.put(sd.getProblemId(), sd.getGrade()));
+        studentProblemsDto.getStudentProblems()
+                .forEach(sp -> grades.put(sp.getProblemId(), sp.getGrade()));
         return grades;
     }
 }

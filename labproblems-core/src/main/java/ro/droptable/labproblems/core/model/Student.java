@@ -34,7 +34,7 @@ public class Student extends BaseEntity<Long> implements Serializable {
     @Column(name = "student_group", nullable = false)
     private Integer studentGroup;
 
-    @OneToMany(mappedBy = "student", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "student", cascade = CascadeType.ALL, fetch = FetchType.EAGER, orphanRemoval = true)
     private Set<StudentProblem> studentProblems = new HashSet<>();
 
     @Override
