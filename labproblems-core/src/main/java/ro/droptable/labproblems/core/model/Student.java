@@ -3,6 +3,10 @@ package ro.droptable.labproblems.core.model;
 import lombok.*;
 
 import javax.persistence.*;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.io.Serializable;
 import java.util.Collections;
 import java.util.HashSet;
@@ -25,12 +29,19 @@ public class Student extends BaseEntity<Long> implements Serializable {
 
     private static final int SERIAL_NUMBER_LENGTH = 16;
 
+    @Size(min = 3, max = 16)
+    @NotNull(message = "serialNumber cannot be null")
     @Column(name = "serial_number", nullable = false, length = SERIAL_NUMBER_LENGTH)
     private String serialNumber;
 
+    @NotNull(message = "name cannot be null")
+    @Size(min = 3)
     @Column(name = "name", nullable = false)
     private String name;
 
+    @NotNull(message = "studentGroup cannot be null")
+    @Min(111)
+    @Max(999)
     @Column(name = "student_group", nullable = false)
     private Integer studentGroup;
 
