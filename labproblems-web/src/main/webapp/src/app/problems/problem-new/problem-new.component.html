@@ -1,15 +1,24 @@
-<h3>Add Problem</h3>
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<body>
 
+<h3>Add Problem</h3>
+<form  ng-app="" name="problemForm">
 <div>
   <label>Title: </label>
-  <input #problemTitle/>
+  <input #problemTitle name="problemTitle" type="text" ng-model="title" required>
+  <span ng-show="problemForm.problemTitle.$invalid">Not a valid title</span>
 </div>
 <div>
   <label>Description: </label>
-  <input #problemDescription>
+  <input #problemDescription name="problemDescription" type="text" ng-model="description" required>
+  <span ng-show="problemForm.problemDescription.$invalid">Not a valid description</span>
 </div>
 <div>
   <button (click)="goBack()">Back</button>
   <button (click)="save(problemTitle.value, problemDescription.value)">Save</button>
 </div>
-
+</form>
+</body>
+</html>
