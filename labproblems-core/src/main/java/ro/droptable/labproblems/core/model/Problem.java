@@ -3,6 +3,8 @@ package ro.droptable.labproblems.core.model;
 import lombok.*;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.io.Serializable;
 import java.util.Collections;
 import java.util.HashSet;
@@ -22,9 +24,13 @@ import java.util.stream.Collectors;
 @Builder
 public class Problem extends BaseEntity<Long> implements Serializable {
 
+    @Size(min = 1, max = 16)
+    @NotNull(message = "title not valid")
     @Column(name = "title", nullable = false)
     private String title;
 
+    @Size(min = 1, max = 256)
+    @NotNull(message = "description not valid")
     @Column(name = "description", nullable = false)
     private String description;
 
