@@ -34,7 +34,8 @@ public class Student extends BaseEntity<Long> implements Serializable {
     @Column(name = "student_group", nullable = false)
     private Integer studentGroup;
 
-    @OneToMany(mappedBy = "student", cascade = CascadeType.ALL, fetch = FetchType.EAGER, orphanRemoval = true)
+    // la @OneToMany, FetchType-ul default e LAZY; puteam sa nu scriu "fetch = FetchType.LAZY"
+    @OneToMany(mappedBy = "student", cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true)
     private Set<StudentProblem> studentProblems = new HashSet<>();
 
     @Override

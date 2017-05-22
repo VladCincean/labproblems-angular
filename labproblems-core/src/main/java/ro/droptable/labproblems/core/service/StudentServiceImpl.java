@@ -30,7 +30,7 @@ public class StudentServiceImpl implements StudentService {
     private ProblemRepository problemRepository;
 
     @Override
-    @Transactional
+//    @Transactional
     public List<Student> findAll() {
         log.trace("findAll");
 
@@ -127,7 +127,7 @@ public class StudentServiceImpl implements StudentService {
     }
 
     @Override
-    @Transactional
+//    @Transactional
     public List<Student> filterStudents(String name) {
         log.trace("filterStudents: name={}", name);
 

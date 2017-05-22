@@ -28,7 +28,8 @@ public class Problem extends BaseEntity<Long> implements Serializable {
     @Column(name = "description", nullable = false)
     private String description;
 
-    @OneToMany(mappedBy = "problem", cascade = CascadeType.ALL, fetch = FetchType.EAGER, orphanRemoval = true)
+    // la @OneToMany, FetchType-ul default e LAZY; puteam sa nu scriu "fetch = FetchType.LAZY"
+    @OneToMany(mappedBy = "problem", cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true)
     private Set<StudentProblem> studentProblems = new HashSet<>();
 
     public Problem(String title, String description) {

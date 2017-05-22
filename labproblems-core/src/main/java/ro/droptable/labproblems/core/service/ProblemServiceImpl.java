@@ -21,7 +21,7 @@ public class ProblemServiceImpl implements ProblemService{
     private ProblemRepository problemRepository;
 
     @Override
-    @Transactional
+//    @Transactional
     public List<Problem> findAll() {
         log.trace("findAll");
 
@@ -71,7 +71,7 @@ public class ProblemServiceImpl implements ProblemService{
     }
 
     @Override
-    @Transactional
+//    @Transactional
     public List<Problem> filterProblems(String title) {
         log.trace("filterProblems: title={}", title);
 
