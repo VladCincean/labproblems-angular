@@ -35,7 +35,8 @@ public class StudentServiceImpl implements StudentService {
         log.trace("findAll");
 
 //        List<Student> students = studentRepository.findAll();
-        List<Student> students = studentRepository.findAllWithProblemsGraph();
+//        List<Student> students = studentRepository.findAllWithProblemsGraph();
+        List<Student> students = studentRepository.findAllWithProblemsSqlQuery();
 
         log.trace("findAll: students={}", students);
 

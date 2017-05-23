@@ -9,7 +9,7 @@ import java.util.List;
 /**
  * Created by vlad on 11.04.2017.
  */
-public interface StudentRepository extends LabProblemsRepository<Student, Long> {
+public interface StudentRepository extends LabProblemsRepository<Student, Long>, StudentRepositoryCustom {
 
     @Query("SELECT DISTINCT s FROM Student s")
     @EntityGraph(value = "studentWithProblems", type = EntityGraph.EntityGraphType.LOAD)
