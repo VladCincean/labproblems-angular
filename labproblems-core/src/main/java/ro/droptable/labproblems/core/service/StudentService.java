@@ -12,13 +12,13 @@ import java.util.Set;
 public interface StudentService {
     List<Student> findAll();
 
+    Student findStudent(Long studentId);
+
     Student createStudent(String serialNumber, String name, Integer studentGroup);
 
     Student updateStudent(Long studentId, String serialNumber, String name, Integer studentGroup, Set<Long> problems);
 
     void deleteStudent(Long studentId);
-
-    Student findStudent(Long studentId);
 
     Student updateStudentGrades(Long studentId, Map<Long, Integer> grades);
 

@@ -34,11 +34,24 @@ public class StudentServiceImpl implements StudentService {
     public List<Student> findAll() {
         log.trace("findAll");
 
-        List<Student> students = studentRepository.findAll();
+//        List<Student> students = studentRepository.findAll();
+        List<Student> students = studentRepository.findAllWithProblemsGraph();
 
         log.trace("findAll: students={}", students);
 
         return students;
+    }
+
+    @Override
+    public Student findStudent(Long studentId) {
+        log.trace("findStudent: studentId={}", studentId);
+
+//        Student student = studentRepository.findOne(studentId);
+        Student student = studentRepository.findOneWithProblems(studentId);
+
+        log.trace("findStudent: student={}", student);
+
+        return student;
     }
 
     @Override
@@ -100,17 +113,6 @@ public class StudentServiceImpl implements StudentService {
         studentRepository.delete(studentId);
 
         log.trace("deleteStudent - method end");
-    }
-
-    @Override
-    public Student findStudent(Long studentId) {
-        log.trace("findStudent: studentId={}", studentId);
-
-        Student student = studentRepository.findOne(studentId);
-
-        log.trace("findStudent: student={}", student);
-
-        return student;
     }
 
     @Override

@@ -16,6 +16,27 @@ import java.util.stream.Collectors;
  */
 @Entity
 @Table(name = "student")
+@NamedEntityGraphs(
+        @NamedEntityGraph(
+                name = "studentWithProblems",
+                attributeNodes = {
+                        @NamedAttributeNode(
+                                value = "studentProblems",
+                                subgraph = "studentProblemsGraph"
+                        )
+                },
+                subgraphs = {
+                        @NamedSubgraph(
+                                name = "studentProblemsGraph",
+                                attributeNodes = {
+                                        @NamedAttributeNode(
+                                                value = "problem"
+                                        )
+                                }
+                        )
+                }
+        )
+)
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
