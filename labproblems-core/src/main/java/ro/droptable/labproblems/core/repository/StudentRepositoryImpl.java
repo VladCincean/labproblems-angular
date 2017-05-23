@@ -8,8 +8,10 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.transaction.annotation.Transactional;
 import ro.droptable.labproblems.core.model.Student;
+import ro.droptable.labproblems.core.model.StudentProblem;
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
+import javax.persistence.criteria.*;
 import java.util.List;
 
 /**
@@ -46,12 +48,39 @@ public class StudentRepositoryImpl
     @Override
     @Transactional
     public List<Student> findAllWithProblemsJpql() {
-        throw new NotImplementedException();
+
+        log.trace("findAllWithProblemsJpql: method entered");
+
+        javax.persistence.Query query = getEntityManager().createQuery("select distinct s from Student s" +
+                " left join fetch s.studentProblems sp" +
+                " left join fetch sp.problem p");
+
+        List<Student> students = query.getResultList();
+
+        log.trace("findAllWithProblemsJpql: students={}", students);
+        return students;
     }
 
     @Override
     @Transactional
     public List<Student> findAllWithProblemsJpaCriteria() {
-        throw new NotImplementedException();
+
+        log.trace("findAllWithProblemsJpaCriteria: method entered");
+
+        CriteriaBuilder criteriaBuilder = getEntityManager().getCriteriaBuilder();
+        CriteriaQuery<Student> query = criteriaBuilder.createQuery(Student.class);
+
+        query.distinct(Boolean.TRUE);
+
+        Root<Student> from = query.from(Student.class);
+
+        Fetch<Student, StudentProblem> studentProblemFetch = from.fetch(Student_.studentProblems, JoinType.LEFT);
+        studentProblemFetch.fetch(StudentProblem_.discipline, JoinType.LEFT);
+
+        List<Student> students = getEntityManager().createQuery(query).getResultList();
+
+        log.trace("findAllWithProblemsJpaCriteria: students={}", students);
+
+        return students;
     }
 }
