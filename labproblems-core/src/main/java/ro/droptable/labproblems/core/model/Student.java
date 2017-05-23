@@ -79,7 +79,7 @@ public class Student extends BaseEntity<Long> implements Serializable {
     public void addGrade(Problem problem, Integer grade) {
         StudentProblem studentProblem = new StudentProblem();
         studentProblem.setProblem(problem);
-        studentProblem.setGrade(grade);
+        studentProblem.setGrade(grade == null ? 0: grade);
         studentProblem.setStudent(this);
         studentProblems.add(studentProblem);
     }
