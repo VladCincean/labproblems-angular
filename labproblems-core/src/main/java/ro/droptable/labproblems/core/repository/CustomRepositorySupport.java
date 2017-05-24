@@ -1,6 +1,5 @@
 package ro.droptable.labproblems.core.repository;
 
-import com.sun.xml.internal.bind.v2.model.core.ID;
 import lombok.Getter;
 import lombok.Setter;
 import ro.droptable.labproblems.core.model.BaseEntity;

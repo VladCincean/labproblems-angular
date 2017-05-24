@@ -9,7 +9,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.transaction.annotation.Transactional;
 import ro.droptable.labproblems.core.model.Student;
 import ro.droptable.labproblems.core.model.StudentProblem;
-import sun.reflect.generics.reflectiveObjects.NotImplementedException;
+import ro.droptable.labproblems.core.model.StudentProblem_;
+import ro.droptable.labproblems.core.model.Student_;
 
 import javax.persistence.criteria.*;
 import java.util.List;
@@ -75,7 +76,7 @@ public class StudentRepositoryImpl
         Root<Student> from = query.from(Student.class);
 
         Fetch<Student, StudentProblem> studentProblemFetch = from.fetch(Student_.studentProblems, JoinType.LEFT);
-        studentProblemFetch.fetch(StudentProblem_.discipline, JoinType.LEFT);
+        studentProblemFetch.fetch(StudentProblem_.problem, JoinType.LEFT);
 
         List<Student> students = getEntityManager().createQuery(query).getResultList();
 
