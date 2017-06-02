@@ -69,7 +69,9 @@ public class Student extends BaseEntity<Long> implements Serializable {
     }
 
     public Set<Problem> getProblems() {
-        return Collections.unmodifiableSet(
+        return this.studentProblems == null ?
+                new HashSet<>() :
+                Collections.unmodifiableSet(
                 this.studentProblems.stream().
                         map(sd -> sd.getProblem()).
                         collect(Collectors.toSet()));

@@ -11,10 +11,7 @@ import ro.droptable.labproblems.core.repository.ProblemRepository;
 import ro.droptable.labproblems.core.repository.StudentRepository;
 
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 /**
  * Created by vlad on 11.04.2017.
@@ -66,6 +63,7 @@ public class StudentServiceImpl implements StudentService {
                 .serialNumber(serialNumber)
                 .name(name)
                 .studentGroup(studentGroup)
+                .studentProblems(new HashSet<>())
                 .build();
         student = studentRepository.save(student);
 
