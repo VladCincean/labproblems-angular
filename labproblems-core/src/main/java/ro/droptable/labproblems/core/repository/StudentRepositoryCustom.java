@@ -9,9 +9,9 @@ import java.util.List;
  */
 public interface StudentRepositoryCustom {
 
-    List<Student> findAllWithProblemsSqlQuery();
-
-    List<Student> findAllWithProblemsJpql();
-
-    List<Student> findAllWithProblemsJpaCriteria();
+//    List<Student> findAllWithProblemsSqlQuery();
+//
+//    List<Student> findAllWithProblemsJpql();
+//
+//    List<Student> findAllWithProblemsJpaCriteria();
 }
