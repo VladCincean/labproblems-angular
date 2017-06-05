@@ -3,4 +3,6 @@
     <student id="2" serial_number="sn2" name="ann" student_group="222" />
     <student id="3" serial_number="sn3" name="mary" student_group="333" />
     <student id="4" serial_number="sn4" name="dan" student_group="444" />
+    <problem id="1" title="p1" description="do something"/>
+    <problem id="2" title="p2" description="do sth else"/>
 </dataset>
