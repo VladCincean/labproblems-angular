@@ -44,8 +44,8 @@ public class StudentServiceTest {
 
     @Test
     public void updateStudent() throws Exception {
-        studentService.updateStudent(1L, "aaa", "bbb", 999, new HashSet<>());
-        Student student = studentService.findStudent(1L);
+        studentService.updateStudent(10L, "aaa", "bbb", 999, new HashSet<>());
+        Student student = studentService.findStudent(10L);
         Assert.assertEquals("the serial number should be aaa", "aaa", student.getSerialNumber());
         Assert.assertEquals("the number should be bbb", "bbb", student.getName());
         Assert.assertEquals("the student group should be 999", Integer.valueOf(999), student.getStudentGroup());
@@ -55,15 +55,16 @@ public class StudentServiceTest {
     public void createStudent() throws Exception {
         studentService.createStudent("aaa", "bbb", 999);
         List<Student> students = studentService.findAll();
+        System.out.println(students);
         Assert.assertEquals("there should be five students", 5, students.size());
     }
 
     @Test
     public void deleteStudent() throws Exception {
-        studentService.deleteStudent(2L);
+        studentService.deleteStudent(20L);
         List<Student> students = studentService.findAll();
         Assert.assertEquals("there should be three students", 3, students.size());
-        Student student = studentService.findStudent(2L);
+        Student student = studentService.findStudent(20L);
         Assert.assertNull("it should be null", student);
     }
 }

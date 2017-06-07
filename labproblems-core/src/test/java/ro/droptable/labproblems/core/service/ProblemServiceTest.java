@@ -43,9 +43,9 @@ public class ProblemServiceTest {
 
     @Test
     public void updateProblem() throws Exception {
-        problemService.updateProblem(1L, "problemU", "updated");
+        problemService.updateProblem(10L, "problemU", "updated");
         List<Problem> problem = problemService.findAll();
-        problem.removeIf(p->p.getId() != 1L);
+        problem.removeIf(p->p.getId() != 10L);
         Problem crtProblem = problem.get(0);
         Assert.assertEquals("the title should be problemU", "problemU", crtProblem.getTitle());
         Assert.assertEquals("the description should be updated", "updated", crtProblem.getDescription());
@@ -55,12 +55,13 @@ public class ProblemServiceTest {
     public void createProblem() throws Exception {
         problemService.createProblem("aaa", "bbb");
         List<Problem> problems = problemService.findAll();
+        System.out.println(problems);
         Assert.assertEquals("there should be 3 problems", 3, problems.size());
     }
 
     @Test
     public void deleteProblem() throws Exception {
-        problemService.deleteProblem(2L);
+        problemService.deleteProblem(20L);
         List<Problem> problems = problemService.findAll();
         Assert.assertEquals("there should be 1 problem", 1, problems.size());
     }
