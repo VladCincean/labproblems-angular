@@ -1,9 +1,6 @@
 package ro.droptable.labproblems.web.dto;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import ro.droptable.labproblems.core.model.Problem;
 
 import java.util.List;
@@ -15,6 +12,7 @@ import java.util.List;
 @AllArgsConstructor
 @Getter
 @Setter
+@Builder
 public class ProblemDto extends BaseDto {
     private String title;
     private String description;
