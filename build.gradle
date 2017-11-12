@@ -47,4 +47,7 @@ allprojects {
         }
         testCompile group: 'org.springframework', name: 'spring-test', version: "$springVersion"
     }
+
+    task stage(dependsOn: ['build', 'clean'])
+    build.mustRunAfter clean
 }
