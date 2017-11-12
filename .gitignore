@@ -22,7 +22,6 @@ generated
 MANIFEST.MF
 
 #gradle
-gradle
 .gradle
 
 #angular
